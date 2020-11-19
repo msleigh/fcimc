@@ -1,0 +1,12 @@
+name: fcimc
+channels:
+  - nodefaults
+dependencies:
+  - python=3.7
+  - matplotlib
+  - numpy
+  - jupyter
+  - pip
+  - pip:
+      - doxypypy
+prefix: /usr/local/Caskroom/miniconda/base/envs/test

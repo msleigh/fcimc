@@ -1,0 +1,12 @@
+*.pyc
+*.png
+*.dat
+*.pdf
+*.o
+*.mod
+*.exe
+*.out
+.ipynb_checkpoints
+docs/html
+docs/latex
+docs/doxygen.log

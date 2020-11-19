@@ -1,0 +1,10 @@
+NAME    	calc7
+DT  		2.e-12
+XSIZE           4.0
+DX  		0.16
+CYCLES  	1500
+NS      	600
+GAMMA		27.0
+SCATTERFRAC	0.628
+T_POWER  	0
+T_INIT		0.001

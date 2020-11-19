@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -eu
+set -o pipefail
+
+if [[ "${1:-""}" == "clean" || "${1:-""}" == "clobber" ]] ; then
+    make -C python/calcs  "$1"
+    make -C fortran/src   "$1"
+    make -C fortran/calcs "$1"
+    make -C docs          "$1"
+    exit 0
+fi
+
+# Uncomment to update known good output files
+#for FILE in $(ls ./*/calcs/calc*_output.dat) ; do
+#    cp "${FILE}" "${FILE}.kgo"
+#done
+
+make -C python/calcs  -j 4 all &
+make -C fortran/src   -j 4 imc.exe
+make -C fortran/calcs -j 4 all &
+PATH="${PWD}/docs:${PATH}" make -C docs -j 4 html &
+wait
+
+for FILE in $(ls ./*/calcs/calc*_output.dat) ; do
+    echo "${FILE}"
+    diff "${FILE}" "${FILE}.kgo"
+done
+
+exit 0
