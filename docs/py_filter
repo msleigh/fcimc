@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Used by Doxygen to process Python code with Doxypypy
+# (see https://github.com/Feneric/doxypypy#invoking-doxypypy-from-doxygen)
+
+doxypypy -a -c $1

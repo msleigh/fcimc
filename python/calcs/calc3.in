@@ -1,0 +1,10 @@
+NAME    	calc3
+DT  		2.e-10
+XSIZE           4.0
+DX  		0.4
+CYCLES  	15
+NS      	4000
+GAMMA		27.0
+SCATTERFRAC	0.994
+T_POWER  	0
+T_INIT		0.001

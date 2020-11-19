@@ -1,0 +1,10 @@
+NAME    	calc2
+DT  		1.e-10
+XSIZE           4.0
+DX  		0.4
+CYCLES  	30
+NS      	3000
+GAMMA		27.0
+SCATTERFRAC	0.988
+T_POWER  	0
+T_INIT		0.001
