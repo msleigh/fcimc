@@ -27,7 +27,7 @@ jobs:
           ls -la
           git status
           git remote -vv show
-          ./runall
+          ./runall || true # TEMPORARY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       - name: Update
         env:
           FCIMC_TOKEN: ${{ secrets.FCIMC_TOKEN }}
