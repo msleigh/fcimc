@@ -23,6 +23,12 @@ jobs:
       - run: |
           conda info
           conda list
+          set -x
+          pwd
+          ls -la
+          git status
+          git remote -vv show
+          set +x
         #- name: Update
         #  env:
         #    MSLEIGH_TOKEN: ${{ secrets.MSLEIGH_TOKEN }}
