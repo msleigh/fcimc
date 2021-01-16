@@ -20,9 +20,9 @@ jobs:
           auto-update-conda: true
           environment-file: environment.yml
           python-version: 3.7
-        - run: |
-            conda info
-            conda list
+      - run: |
+          conda info
+          conda list
         #- name: Update
         #  env:
         #    MSLEIGH_TOKEN: ${{ secrets.MSLEIGH_TOKEN }}
