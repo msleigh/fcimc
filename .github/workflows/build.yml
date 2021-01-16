@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v2
+    - name: Set up Conda
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+          activate-environment: fcimc
+          auto-activate-base: false
+          auto-update-conda: true
+          environment-file: environment.yml
+          python-version: 3.7
+    - run: |
+        conda info
+        conda list
+        #- name: Update
+        #  env:
+        #    MSLEIGH_TOKEN: ${{ secrets.MSLEIGH_TOKEN }}
+        #  run: |-
+        #    ./runall
+        #- name: Commit and push if changed
+        #  run: |-
+        #    git diff
+        #    git config --global user.email "actions@users.noreply.github.com"
+        #    git config --global user.name "Build Bot"
+        #    git add -A
+        #    git commit -m "Updated graphs" || exit 0
+        #    git push
