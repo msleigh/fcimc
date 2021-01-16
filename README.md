@@ -31,16 +31,11 @@ included in the repository.
 - Doxygen
 - Graphviz
 - Doxypypy (requires Python<3.8, see note 1)
+- LaTeX
 
-### Notes
+### Installation
 
-1. The requirement for Python < 3.8 is due to a bug in Doxypypy; see
-   https://github.com/Feneric/doxypypy/issues/70. If documentation is not required
-   then this limit can be ignored.
-
-## Installation
-
-To create a Conda env with the necessary Python packages:
+To create a Conda env with the necessary Python dependencies:
 
     conda env create -f environment.yml
     conda activate fcimc
@@ -50,6 +45,12 @@ To install the non-Python dependencies on macOS:
     brew install gfortran
     brew install doxygen
     brew install graphviz
+
+### Notes
+
+1. The requirement for Python < 3.8 is due to a bug in Doxypypy; see
+   https://github.com/Feneric/doxypypy/issues/70. If documentation is not required
+   then this limit can be ignored.
 
 ## Usage
 
@@ -96,4 +97,17 @@ or build/execute, e.g.:
     make -C python/calcs -j 4 all
     make -C docs html
 
+## Verification of FCIMC
+
+Verification against the original Fleck and Cummings (1971) results (shown on the left)
+of both a Fortran (middle) and a Python (right) implementation of the IMC scheme
+described therein.
+
+<table>
+<tr><td><img src="fig2.png" width="700"></td><td><img src="fortran/calcs/fig2.png"></td><td><img src="python/calcs/fig2.png"></td></tr>
+<tr><td><img src="fig3.png" width="700"></td><td><img src="fortran/calcs/fig3.png"></td><td><img src="python/calcs/fig3.png"></td></tr>
+<tr><td><img src="fig4.png" width="700"></td><td><img src="fortran/calcs/fig4.png"></td><td><img src="python/calcs/fig4.png"></td></tr>
+<tr><td><img src="fig5.png" width="700"></td><td><img src="fortran/calcs/fig5.png"></td><td><img src="python/calcs/fig5.png"></td></tr>
+<tr><td><img src="fig6.png" width="700"></td><td><img src="fortran/calcs/fig6.png"></td><td><img src="python/calcs/fig6.png"></td></tr>
+</table>
 
