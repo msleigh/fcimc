@@ -17,7 +17,7 @@ fi
 #done
 
 make -C python/calcs  -j 4 all &
-make -C fortran/src   -j 4 imc.exe
+make -C fortran/src   -j 1 imc.exe
 make -C fortran/calcs -j 4 all &
 PATH="${PWD}/docs:${PATH}" make -C docs -j 4 html &
 wait
