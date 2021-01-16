@@ -18,7 +18,6 @@ jobs:
           auto-update-conda: true
           environment-file: environment.yml
           python-version: 3.7
-    - name: Test
       run: |
         conda info
         conda list
