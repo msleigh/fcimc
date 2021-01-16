@@ -6,21 +6,23 @@ on:
 
 jobs:
   build:
+    name: Run All
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
     steps:
-    - name: Check out repo
-      uses: actions/checkout@v2
-    - name: Set up Conda
-      uses: conda-incubator/setup-miniconda@v2
-      with:
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
           activate-environment: fcimc
           auto-activate-base: false
           auto-update-conda: true
           environment-file: environment.yml
           python-version: 3.7
-      run: |
-        conda info
-        conda list
+        - run: |
+            conda info
+            conda list
         #- name: Update
         #  env:
         #    MSLEIGH_TOKEN: ${{ secrets.MSLEIGH_TOKEN }}
