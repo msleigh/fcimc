@@ -23,22 +23,18 @@ jobs:
       - run: |
           conda info
           conda list
-          set -x
           pwd
           ls -la
           git status
           git remote -vv show
-          set +x
-        #- name: Update
-        #  env:
-        #    MSLEIGH_TOKEN: ${{ secrets.MSLEIGH_TOKEN }}
-        #  run: |-
-        #    ./runall
-        #- name: Commit and push if changed
-        #  run: |-
-        #    git diff
-        #    git config --global user.email "actions@users.noreply.github.com"
-        #    git config --global user.name "Build Bot"
-        #    git add -A
-        #    git commit -m "Updated graphs" || exit 0
-        #    git push
+          ./runall
+      - name: Update
+        env:
+          FCIMC_TOKEN: ${{ secrets.FCIMC_TOKEN }}
+        run: |-
+          git diff
+          git config --global user.email "actions@users.noreply.github.com"
+          git config --global user.name "Build Bot"
+          git add fortran/calcs/*.png python/calcs/*.png
+          git commit -m "Updated graphs" || exit 0
+          git push
