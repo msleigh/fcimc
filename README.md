@@ -1,13 +1,13 @@
 fcimc
 =====
 
-A Python implementation of Fleck and Cummings's implicit Monte Carlo (IMC) scheme, as
+A Python implementation of Fleck and Cummings's implicit Monte Carlo (IMC) scheme,
 published in Journal of Computational Physics (JCP) in 1971.
 
 <img src="https://img.shields.io/github/v/release/msleigh/fcimc?include_prereleases"> <img src="https://img.shields.io/github/license/msleigh/fcimc"> <img src="https://img.shields.io/tokei/lines/github/msleigh/fcimc"> <img src="https://img.shields.io/github/last-commit/msleigh/fcimc"> <img src="https://img.shields.io/badge/code%20style-black-lightgrey">
 
 Both a Python and a Fortran implementation are included; in each, the results from the
-published papaer (Fleck and Cummings 1971) are reproduced via a set of predefined runs
+published paper (Fleck and Cummings 1971) are reproduced via a set of predefined runs
 included in the repository.
 
 ## Dependencies
