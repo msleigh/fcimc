@@ -37,16 +37,10 @@ included in the repository.
 
 ### Installation
 
-To create a Conda env with the necessary Python dependencies:
+To create a Conda env with the necessary dependencies:
 
     conda env create -f environment.yml
     conda activate fcimc
-
-To install the non-Python dependencies on macOS:
-
-    brew install gfortran
-    brew install doxygen
-    brew install graphviz
 
 ## Usage
 

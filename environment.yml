@@ -1,12 +1,16 @@
 name: fcimc
 channels:
   - nodefaults
+  - conda-forge
 dependencies:
   - python=3
   - matplotlib
   - numpy
   - jupyter
   - pip
+  - gfortran
+  - doxygen
+  - graphviz
   - pip:
       - git+https://github.com/Feneric/doxypypy
 prefix: /usr/local/Caskroom/miniconda/base/envs/test
