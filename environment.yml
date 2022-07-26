@@ -2,11 +2,11 @@ name: fcimc
 channels:
   - nodefaults
 dependencies:
-  - python=3.7
+  - python=3
   - matplotlib
   - numpy
   - jupyter
   - pip
   - pip:
-      - doxypypy
+      - git+https://github.com/Feneric/doxypypy
 prefix: /usr/local/Caskroom/miniconda/base/envs/test

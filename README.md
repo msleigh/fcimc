@@ -16,7 +16,7 @@ included in the repository.
 
 ### Python version
 
-- Python 3 (<3.8, see note 1)
+- Python 3
 - Numpy
 
 ### Fortran version
@@ -32,7 +32,7 @@ included in the repository.
 
 - Doxygen
 - Graphviz
-- Doxypypy (requires Python<3.8, see note 1)
+- Doxypypy
 - LaTeX
 
 ### Installation
@@ -47,12 +47,6 @@ To install the non-Python dependencies on macOS:
     brew install gfortran
     brew install doxygen
     brew install graphviz
-
-### Notes
-
-1. The requirement for Python < 3.8 is due to a bug in Doxypypy; see
-   https://github.com/Feneric/doxypypy/issues/70. If documentation is not required
-   then this limit can be ignored.
 
 ## Usage
 
