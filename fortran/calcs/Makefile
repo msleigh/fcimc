@@ -24,25 +24,25 @@ fig6.png: make_fig6.py calc6_output.dat calc7_output.dat
 
 
 calc1_output.dat: $(EXE) calc1.in
-	$(EXE) -i calc1.in > calc1.out
+	$(EXE) -i calc1.in -o calc1_output.dat > calc1.out
 
 calc2_output.dat: $(EXE) calc2.in
-	$(EXE) -i calc2.in > calc2.out
+	$(EXE) -i calc2.in -o calc2_output.dat > calc2.out
 
 calc3_output.dat: $(EXE) calc3.in
-	$(EXE) -i calc3.in > calc3.out
+	$(EXE) -i calc3.in -o calc3_output.dat > calc3.out
 
 calc4_output.dat: $(EXE) calc4.in
-	$(EXE) -i calc4.in > calc4.out
+	$(EXE) -i calc4.in -o calc4_output.dat > calc4.out
 
 calc5_output.dat: $(EXE) calc5.in
-	$(EXE) -i calc5.in > calc5.out
+	$(EXE) -i calc5.in -o calc5_output.dat > calc5.out
 
 calc6_output.dat: $(EXE) calc6.in
-	$(EXE) -i calc6.in > calc6.out
+	$(EXE) -i calc6.in -o calc6_output.dat > calc6.out
 
 calc7_output.dat: $(EXE) calc7.in
-	$(EXE) -i calc7.in > calc7.out
+	$(EXE) -i calc7.in -o calc7_output.dat > calc7.out
 
 calc1.in: ../../python/calcs/calc1.in
 	cp ../../python/calcs/calc1.in ./

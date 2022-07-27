@@ -13,11 +13,12 @@ subroutine usage(routine_name)
 end subroutine usage
 
 
-subroutine parse_args()
-
-    use imc_global_io_data,   only: input_file, output_file
+subroutine parse_args(input_file, output_file)
 
     implicit none
+
+    character(len=256), intent(out) :: input_file
+    character(len=256), intent(out) :: output_file
 
     character(len=256) :: routine_name
     logical            :: print_help
@@ -84,20 +85,25 @@ program main
 
     implicit none
 
-    integer       :: tcom, tfin, clock_rate
+    integer       :: tm0, tm1, clock_rate
+
+    character(len=256) :: input_file
+    character(len=256) :: output_file
+
     integer       :: rng_seed
 
-    call system_clock(tcom)
+    ! Command-line options
+    call parse_args(input_file, output_file)
 
-    call parse_args()
+    call system_clock(tm0)
 
     rng_seed = 12345
     call init_random_seed(rng_seed) ! Non-zero argument fixes random number sequence - reproducible
 
     n_max = 20000
 
-    call imc_user_input_read
-    call imc_user_input_echo
+    call imc_user_input_read(input_file)
+    call imc_user_input_echo()
 
     allocate(origin(n_max))
     allocate(xpos(n_max))
@@ -121,7 +127,7 @@ program main
 
     call imc_mesh_make
 
-    call imc_opcon
+    call imc_opcon(output_file)
 
     deallocate(origin)
     deallocate(xpos)
@@ -133,8 +139,8 @@ program main
     deallocate(icell)
     deallocate(dead)
 
-    call system_clock(tfin, clock_rate)
-    write(*,'(A,F10.2,A)') 'Time taken for simulation = ', &
-        & float(tfin - tcom) / float(clock_rate), ' s'
+    call system_clock(tm1, clock_rate)
+    write(*,'(A,F10.2,A)') 'Time taken for calculation = ', &
+        & float(tm1 - tm0) / float(clock_rate), ' s'
 
 end program main

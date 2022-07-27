@@ -56,7 +56,7 @@ def run():
     print(mesh.fleck)
     print("...This should be constant (for a given timestep length)...")
     print(
-            "...This should equal {:10.8f}...".format(
+        "...This should equal {:10.8f}...".format(
             1.0
             / (
                 1.0
@@ -71,7 +71,8 @@ def run():
     print("Material gamma/D     = {:6.3f}".format(mat.gamma))
     print(
         "Sigma at nu = 3 keV  = {:6.3f} cm^-1".format(
-        mat.gamma * (1.0 - math.exp(-3.0 / 0.001)) / (3.0 ** 3))
+            mat.gamma * (1.0 - math.exp(-3.0 / 0.001)) / (3.0 ** 3)
+        )
     )
     print("Spatial step         = {:6.3f}".format(mesh.dx))
     print("Time step            = {:6.3f} sh".format(time.dt / 1.0e-08))

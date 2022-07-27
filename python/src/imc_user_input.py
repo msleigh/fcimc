@@ -2,7 +2,6 @@
 
 from math import ceil
 
-import imc_global_io_data as io
 import imc_global_mesh_data as mesh
 import imc_global_mat_data as mat
 import imc_global_part_data as part
@@ -10,16 +9,16 @@ import imc_global_phys_data as phys
 import imc_global_time_data as time
 
 
-def read():
+def read(input_file):
     """
     @brief   Reads input deck.
 
     @details Reads input deck with user-specified problem-specific
              information.
-    @param   None
+    @param   input_file  Name of input file
     @return  None
     """
-    with open(io.input_file, "r") as input_file:
+    with open(input_file, "r") as input_file:
         for line in input_file:
 
             # Ignore blank lines
@@ -34,10 +33,7 @@ def read():
             keyw = fields[0].lower()
             keyv = fields[1]
 
-            if keyw == "name":
-                io.output_file = "../calcs/%s_output.dat" % keyv.strip()
-
-            elif keyw == "dt":
+            if keyw == "dt":
                 time.dt = float(keyv)
 
             elif keyw == "xsize":
@@ -88,8 +84,6 @@ def echo():
     print("=" * 79)
 
     print()
-    print("io.output    {}".format(io.output_file))
-
     print("mesh.ncells  {:5d}".format(mesh.ncells))
     print("mesh.xsize   {:5.1f}".format(mesh.xsize))
 

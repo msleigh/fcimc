@@ -15,10 +15,9 @@ subroutine to_lower(word)
 end subroutine to_lower
 
 
-subroutine imc_user_input_read
+subroutine imc_user_input_read(input_file)
 
     use imc_utils,            only: imc_get_free_lun
-    use imc_global_io_data,   only: input_file, output_file
     use imc_global_time_data, only: dt, ns
     use imc_global_mesh_data, only: xsize, ncells, dx
     use imc_global_part_data, only: n_input
@@ -26,6 +25,8 @@ subroutine imc_user_input_read
     use imc_global_phys_data, only: x15pi4, a, c
 
     implicit none
+
+    character(len=*), intent(in)  :: input_file
 
     integer :: ifile_lun, io_status, pos1, pos2, n
     logical :: file_exists, eof
@@ -39,7 +40,7 @@ subroutine imc_user_input_read
     inquire(file=trim(input_file), exist=file_exists)
 
     if (.not. file_exists) then
-        write(*,'(2A)') 'Error: file does not exist: ',trim(input_file)
+        write(*,*) 'Error: file does not exist: ', trim(input_file)
         stop
     endif
 
@@ -103,10 +104,7 @@ subroutine imc_user_input_read
         998 format(f64.32)
         999 format(i64)
 
-        if (keyw == 'name') then
-            output_file = '../calcs/' // trim(keyv) // '_output.dat'
-
-        elseif (keyw == "dt") then
+        if (keyw == "dt") then
             read(keyv,998) dt
 
         elseif (keyw == 'xsize') then
@@ -152,9 +150,8 @@ subroutine imc_user_input_read
 end subroutine imc_user_input_read
 
 
-subroutine imc_user_input_echo
+subroutine imc_user_input_echo()
 
-    use imc_global_io_data,   only: output_file
     use imc_global_time_data, only: dt, ns
     use imc_global_mesh_data, only: xsize, ncells
     use imc_global_part_data, only: n_input, n_max
@@ -167,8 +164,6 @@ subroutine imc_user_input_echo
     write(*,'(A79)')   "========================================================================================="
 
     write(*,*)
-    write(*,'(A12,1X,A)')       'io.output   ', trim(output_file)
-
     write(*,'(A12,1X,I5)')      'mesh.ncells ', ncells
     write(*,'(A12,1X,F5.1)')    'mesh.xsize  ', xsize
 

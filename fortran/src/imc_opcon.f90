@@ -1,6 +1,5 @@
-subroutine imc_opcon
+subroutine imc_opcon(output_file)
 
-    use imc_global_io_data,   only: output_file
     use imc_global_mesh_data, only: temp0, temp, cellpos
     use imc_global_phys_data, only: c
     use imc_global_time_data, only: time, ns, step, dt
@@ -9,9 +8,10 @@ subroutine imc_opcon
 
     implicit none
 
-    real(kind=8), dimension(3) :: plottimes = (/ 6.d0, 15.d0, 90.d0 /)
-    integer                    :: plottimenext = 1
-    integer                    :: fname
+    character(len=*), intent(in) :: output_file
+    real(kind=8), dimension(3)   :: plottimes = (/ 6.d0, 15.d0, 90.d0 /)
+    integer                      :: plottimenext = 1
+    integer                      :: fname
 
     ! Open output file
     fname = imc_get_free_lun()

@@ -1,6 +1,7 @@
 """Control of main numerical calculation."""
 
 import pickle
+
 # import matplotlib.pyplot as plt
 
 import imc_update
@@ -8,13 +9,12 @@ import imc_source
 import imc_tally
 import imc_track
 
-import imc_global_io_data as io
 import imc_global_mesh_data as mesh
 import imc_global_phys_data as phys
 import imc_global_time_data as time
 
 
-def run():
+def run(output_file):
     """
     Control calculation for fcimc.
 
@@ -25,7 +25,7 @@ def run():
     plottimenext = 0
 
     # Open output file
-    fname = open(io.output_file, "wb")
+    fname = open(output_file, "wb")
 
     # Set an initial temperature field
     mesh.temp[:] = mesh.temp0[:]  # keV

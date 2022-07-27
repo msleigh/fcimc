@@ -5,7 +5,6 @@ import logging
 import random
 import time as pytime
 
-import imc_global_io_data as io
 import imc_global_part_data as part
 
 import imc_mesh
@@ -31,39 +30,51 @@ def parse_args():
         description="Python implementation of Fleck and Cummings (1971) implicit Monte Carlo code."
     )
 
-    parser.add_argument("-i", "--input", default="fcimc.in", help="Name of input deck")
+    parser.add_argument("-i", "--input", default="fcimc.in", help="Name of input file")
+    parser.add_argument(
+        "-o", "--output", default="fcimc.out", help="Name of output file"
+    )
+    parser.add_argument("-d", "--debug", default=False, help="Debug mode")
 
     return parser.parse_args()
 
 
-def main():
-    """Top-level main function for fcimc."""
+def main(input_file, output_file, debug_mode):
+    """
+    @brief   Top-level function for fcimc.
+
+    @details Can be called within Python after importing, so has simple/flat signature.
+
+    @param   input_file
+    @param   output_file
+    @param   debug_mode
+    """
     tm0 = pytime.perf_counter()
 
-    io.logger = setup_logger()
-
-    args = parse_args()
-    io.input_file = args.input
+    logger = setup_logger()
 
     rng_seed = 12345
-    #io.logger.info("Initialising RNG with seed %d", rng_seed)
+    # logger.info("Initialising RNG with seed %d", rng_seed)
     random.seed(rng_seed)
 
     part.n_max = 20000
 
-    imc_user_input.read()
+    imc_user_input.read(input_file)
     imc_user_input.echo()
 
     imc_mesh.make()
-    #imc_mesh.echo()
+    # imc_mesh.echo()
 
-    imc_opcon.run()
+    imc_opcon.run(output_file)
 
     tm1 = pytime.perf_counter()
-    print("Time taken for calculation= {:10.2f} s".format(tm1 - tm0))
+    print("Time taken for calculation = {:10.2f} s".format(tm1 - tm0))
 
 
 if __name__ == "__main__":
 
+    # Command-line options
+    args = parse_args()
+
     # Call the main function
-    main()
+    main(args.input, args.output, args.debug)

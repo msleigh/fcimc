@@ -7,8 +7,8 @@ FFLAGS = -Ofast
 #FFLAGS = -fopenmp
 #LFLAGS =
 
-OBJECTS = imc_global_bcon_data.o \
-          imc_global_io_data.o   \
+OBJECTS = \
+          imc_global_bcon_data.o \
           imc_global_mat_data.o  \
           imc_global_mesh_data.o \
           imc_global_part_data.o \
@@ -24,8 +24,8 @@ OBJECTS = imc_global_bcon_data.o \
           imc_opcon.o            \
           imc.o
 
-MODULES = imc_global_bcon_data.mod \
-          imc_global_io_data.mod   \
+MODULES = \
+          imc_global_bcon_data.mod \
           imc_global_mat_data.mod  \
           imc_global_mesh_data.mod \
           imc_global_part_data.mod \
