@@ -29,7 +29,7 @@ MODULES = \
           imc_global_mat_data.mod  \
           imc_global_mesh_data.mod \
           imc_global_part_data.mod \
-          imc_global_phys_data.o   \
+          imc_global_phys_data.mod \
           imc_global_time_data.mod \
           imc_utils.mod
 
