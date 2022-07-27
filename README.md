@@ -93,6 +93,17 @@ Building the documentation is a special case:
 
 which makes the `py_filter` command available.
 
+### GitHub Pages
+
+The `html` docs produced by Doxygen can be uploaded to GitHub Pages with:
+
+    make -C docs github
+
+(This step is _not_ run by `runall`.) This uses `ghp-import` to commit the
+built documentation to a branch called `gh-pages`, and push this to GitHub. If
+the GitHub repository is configured correctly then the `gh-pages` branch will
+be rendered as a static site at `https://<user>.github.io/fcimc`.
+
 ## Verification of FCIMC
 
 Verification against the original Fleck and Cummings (1971) results (shown on the left)

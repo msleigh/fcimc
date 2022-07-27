@@ -11,6 +11,7 @@ dependencies:
   - gfortran
   - doxygen
   - graphviz
+  - ghp-import
   - pip:
       - git+https://github.com/Feneric/doxypypy
 prefix: /usr/local/Caskroom/miniconda/base/envs/test
