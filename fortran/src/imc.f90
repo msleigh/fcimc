@@ -4,9 +4,11 @@ subroutine usage(routine_name)
 
     character(len=*), intent(in) :: routine_name
 
-    write(*,'(3A)') 'usage: python ', routine_name, ' [-d | --debug] [-h | --help]'// &
-                    '[[-i | --input] INPUT_FILE_NAME]'//                              &
-                    '[[-o | --output] OUTPUT_FILE_NAME]'
+    write(*,'(3A)') 'usage: python ', routine_name, &
+                    ' [-d | --debug]'// &
+                    ' [-h | --help]'// &
+                    ' [(-i | --input) INPUT_FILE_NAME]'// &
+                    ' [(-o | --output) OUTPUT_FILE_NAME]'
 
 end subroutine usage
 
