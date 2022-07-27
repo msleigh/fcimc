@@ -86,7 +86,12 @@ to either clean up one part, e.g.:
 or build/execute, e.g.:
 
     make -C python/calcs -j 4 all
-    make -C docs html
+
+Building the documentation is a special case:
+
+    PATH="$PWD/docs:$PATH" make -C docs html
+
+which makes the `py_filter` command available.
 
 ## Verification of FCIMC
 
