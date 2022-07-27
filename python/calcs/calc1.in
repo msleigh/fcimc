@@ -1,6 +1,6 @@
 NAME    	calc1
 DT  		2.e-11
-XSIZE           4.0
+XSIZE		4.0
 DX  		0.4
 CYCLES  	150
 NS      	1000

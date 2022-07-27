@@ -1,6 +1,6 @@
 NAME    	calc2
 DT  		1.e-10
-XSIZE           4.0
+XSIZE	    4.0
 DX  		0.4
 CYCLES  	30
 NS      	3000
