@@ -4,7 +4,12 @@ fcimc
 Python and Fortran implementations of Fleck and Cummings's implicit Monte Carlo
 (IMC) scheme, published in Journal of Computational Physics (JCP) in 1971.
 
-<img src="https://img.shields.io/github/v/release/msleigh/fcimc?include_prereleases"> <img src="https://img.shields.io/github/license/msleigh/fcimc"> <img src="https://img.shields.io/tokei/lines/github/msleigh/fcimc"> <img src="https://img.shields.io/github/last-commit/msleigh/fcimc"> <img src="https://img.shields.io/badge/code%20style-black-lightgrey">
+<img src="https://img.shields.io/github/v/release/msleigh/fcimc?include_prereleases">
+<img src="https://img.shields.io/github/license/msleigh/fcimc">
+<img src="https://img.shields.io/github/last-commit/msleigh/fcimc">
+<img src="https://img.shields.io/tokei/lines/github/msleigh/fcimc">
+
+<img src="https://img.shields.io/badge/code%20style-black-lightgrey">
 
 ![Build status (`main`)](https://github.com/msleigh/fcimc/actions/workflows/build.yml/badge.svg?branch=main)
 
@@ -25,8 +30,8 @@ repository.
 
 ### Bundled calculations
 
-- Matplotlib (to plot the figures)
-- Jupyter (to open the verification notebook)
+- Matplotlib
+- Jupyter
 
 ### Documentation
 
@@ -34,8 +39,9 @@ repository.
 - Graphviz
 - Doxypypy
 - LaTeX
+- ghp-import
 
-### Installation
+## Installation
 
 To create a Conda env with the necessary dependencies:
 
@@ -104,7 +110,11 @@ built documentation to a branch called `gh-pages`, and push this to GitHub. If
 the GitHub repository is configured correctly then the `gh-pages` branch will
 be rendered as a static site at `https://<user>.github.io/fcimc`.
 
-## Verification of FCIMC
+## Verification
+
+Run the Jupyer notebook to plot the results:
+
+    jupyter notebook verification.ipynb
 
 Verification against the original Fleck and Cummings (1971) results (shown on the left)
 of both a Fortran (middle) and a Python (right) implementation of the IMC scheme
