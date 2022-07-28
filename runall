@@ -12,7 +12,7 @@ if [[ "${1:-""}" == "clean" || "${1:-""}" == "clobber" ]] ; then
 fi
 
 # Uncomment to update known good output files
-#for FILE in $(ls ./*/calcs/calc*_output.dat) ; do
+#for FILE in ./*/calcs/calc*_output.dat ; do
 #    cp "${FILE}" "${FILE}.kgo"
 #done
 
@@ -22,7 +22,7 @@ make -C fortran/calcs -j 4 all &
 PATH="${PWD}/docs:${PATH}" make -C docs -j 4 html &
 wait
 
-for FILE in $(ls ./*/calcs/calc*_output.dat) ; do
+for FILE in ./*/calcs/calc*_output.dat ; do
     echo "${FILE}"
     diff "${FILE}" "${FILE}.kgo"
 done
