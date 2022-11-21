@@ -38,12 +38,18 @@ repository.
 - LaTeX
 - ghp-import
 
+The local `py_filter` script must be on the `$PATH`.
+
 ## Installation
 
 To create a Conda env with the necessary dependencies:
 
     conda env create -f environment.yml
     conda activate fcimc
+
+Add `py_filter` to the `$PATH`:
+
+    export PATH=".:${PATH}"
 
 ## Usage
 
