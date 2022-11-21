@@ -11,7 +11,6 @@ def make():
     @brief   Sets up mesh.
 
     @details Sets up fixed spatial mesh.
-    @param   None
     @return  None
 
     Mesh creation
@@ -53,7 +52,6 @@ def echo():
     @brief   Prints mesh.
 
     @details Prints out spatial mesh for debugging.
-    @param   None
     @return  None
     """
     print("Mesh:")
