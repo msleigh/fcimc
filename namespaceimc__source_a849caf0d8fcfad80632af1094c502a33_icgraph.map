@@ -1,0 +1,6 @@
+<map id="imc_source.imc_source_particles" name="imc_source.imc_source_particles">
+<area shape="rect" id="node1" title="For known energy distribution (surface and mesh), create source particles." alt="" coords="441,5,601,45"/>
+<area shape="rect" id="node2" href="$namespaceimc__source.html#a3d01682d48852286bda3c4ef40adf047" title="Source new IMC particles." alt="" coords="283,13,393,38"/>
+<area shape="rect" id="node3" href="$namespaceimc__opcon.html#a5fd8ae7971e0eabe1081965e6b006cda" title="Control calculation for fcimc." alt="" coords="128,13,235,38"/>
+<area shape="rect" id="node4" href="$namespaceimc.html#afd80052a4e113a9b1bf5dbcf7c9a16f5" title="Top&#45;level function for fcimc." alt="" coords="5,13,80,38"/>
+</map>

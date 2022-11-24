@@ -1,0 +1,5 @@
+<map id="imc_source.run" name="imc_source.run">
+<area shape="rect" id="node1" title="Source new IMC particles." alt="" coords="283,5,393,31"/>
+<area shape="rect" id="node2" href="$namespaceimc__opcon.html#a5fd8ae7971e0eabe1081965e6b006cda" title="Control calculation for fcimc." alt="" coords="128,5,235,31"/>
+<area shape="rect" id="node3" href="$namespaceimc.html#afd80052a4e113a9b1bf5dbcf7c9a16f5" title="Top&#45;level function for fcimc." alt="" coords="5,5,80,31"/>
+</map>
