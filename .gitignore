@@ -9,3 +9,4 @@
 docs/html
 docs/latex
 docs/doxygen.log
+.venv

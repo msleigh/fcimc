@@ -147,18 +147,12 @@ $$
 
 is rearranged to give:
 
-$$
-u_r^{n+1} \approx
-\left[ \frac{1-\left(1-\alpha\right)\hat\beta c\Delta t\hat\sigma}{1+\alpha\hat\beta c\Delta t\hat\sigma} \right] u^n_r
-+
-\left[ \frac{\hat\beta\hat\sigma\Delta t}{1+\alpha\hat\beta c\Delta t\hat\sigma} \right] \phi^\lambda
-$$
+$$ u_r^{n+1} \approx \left[ \frac{1-\left(1-\alpha\right)\hat\beta c\Delta t\hat\sigma}{1+\alpha\hat\beta c\Delta t\hat\sigma} \right] u^n_r + \left[ \frac{\hat\beta\hat\sigma\Delta t}{1+\alpha\hat\beta c\Delta t\hat\sigma} \right] \phi^\lambda $$
 
 which allows us to write:
 
 $$ \alpha u^{n+1}_r + \left(1-\alpha\right) u^n_r =
-\frac{\alpha\hat\beta\hat\sigma\Delta t}{1 + \alpha\hat\beta c\Delta t\hat\sigma} \phi^\lambda
-+
+\frac{\alpha\hat\beta\hat\sigma\Delta t}{1 + \alpha\hat\beta c\Delta t\hat\sigma} \phi^\lambda +
 \frac{1}{1 + \alpha\hat\beta c\Delta t\hat\sigma} u^n_r
 $$
 
@@ -166,16 +160,14 @@ Substituting this into the transport equation gives:
 
 $$ \frac{1}{c} \frac{\partial I}{\partial t} + \mu \frac{\partial I}{\partial x} + \sigma I
 = \frac{1}{2}\sigma
-    \left[ \frac{\alpha\hat\beta c\hat\sigma\Delta t}{1 + \alpha\hat\beta c\Delta t\hat\sigma} \phi^\lambda
-+
+    \left[ \frac{\alpha\hat\beta c\hat\sigma\Delta t}{1 + \alpha\hat\beta c\Delta t\hat\sigma} \phi^\lambda +
 \frac{c}{1 + \alpha\hat\beta c\Delta t\hat\sigma} u^n_r\right]
 $$
 
 which we can re-write as:
 
 $$ \frac{1}{c} \frac{\partial I}{\partial t} + \mu \frac{\partial I}{\partial x} + \sigma I =
-\frac{1}{2} \sigma_s \phi^\lambda
-+
+\frac{1}{2} \sigma_s \phi^\lambda +
 \frac{1}{2} c\sigma_a u^n_r
 $$
 
