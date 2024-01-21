@@ -57,7 +57,7 @@ Add `py_filter` to the `$PATH`:
 
 To build and run everything from scratch, run the top-level script:
 
-    ./runall clobber # Removes latest graphs
+    ./runall clobber  # Removes latest graphs
     ./runall
 
 To see the aggregated output:
