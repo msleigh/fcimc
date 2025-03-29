@@ -19,7 +19,6 @@ jobs:
           auto-activate-base: false
           auto-update-conda: true
           environment-file: environment.yml
-          python-version: 3.7
       - name: Build docs
         run: |
           PATH="${PWD}/docs:${PATH}" make -C docs html
