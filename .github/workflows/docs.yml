@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build docs
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: fcimc
+          auto-activate-base: false
+          auto-update-conda: true
+          environment-file: environment.yml
+          python-version: 3.7
+      - run: |
+          conda info
+          conda list
+          pwd
+          ls -la
+          git status
+          git remote -vv show
+          PATH="${PWD}/docs:${PATH}" make -C docs html
