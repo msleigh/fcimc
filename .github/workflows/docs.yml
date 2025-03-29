@@ -20,5 +20,16 @@ jobs:
           auto-update-conda: true
           environment-file: environment.yml
           python-version: 3.7
-      - run: |
+      - name: Build docs
+        run: |
           PATH="${PWD}/docs:${PATH}" make -C docs html
+      - name: Deploy docs via SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DOCS_SSH_PRIVATE_KEY }}
+      - name: Disable strict host key checking
+        run: |
+          mkdir -p ~/.ssh
+          echo "StrictHostKeyChecking no" >> ~/.ssh/config
+      - run: |
+          rsync -avz --delete docs/html/ ${{ secrets.DOCS_SSH_USER }}@${{ secrets.DOCS_SSH_HOST }}:${{ secrets.DOCS_SSH_PATH }}
