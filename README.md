@@ -15,6 +15,38 @@ For each implementation, the results from the published paper (Fleck and
 Cummings 1971) are reproduced via a set of predefined runs included in the
 repository.
 
+<table>
+  <tr>
+    <th>Fleck and Cummings (1971)</th>
+    <th>Fortran implementation</th>
+    <th>Python implementation</th>
+  <tr>
+    <td><img src="docs/images/figures/reference/fig2.png" width="700"></td>
+    <td><img src="docs/images/figures/fortran/fig2.png"></td>
+    <td><img src="docs/images/figures/python/fig2.png"></td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/figures/reference/fig3.png" width="700"></td>
+    <td><img src="docs/images/figures/fortran/fig3.png"></td>
+    <td><img src="docs/images/figures/python/fig3.png"></td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/figures/reference/fig4.png" width="700"></td>
+    <td><img src="docs/images/figures/fortran/fig4.png"></td>
+    <td><img src="docs/images/figures/python/fig4.png"></td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/figures/reference/fig5.png" width="700"></td>
+    <td><img src="docs/images/figures/fortran/fig5.png"></td>
+    <td><img src="docs/images/figures/python/fig5.png"></td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/figures/reference/fig6.png" width="700"></td>
+    <td><img src="docs/images/figures/fortran/fig6.png"></td>
+    <td><img src="docs/images/figures/python/fig6.png"></td>
+  </tr>
+</table>
+
 ## Dependencies
 
 ### Python implementation
@@ -124,11 +156,4 @@ Verification against the original Fleck and Cummings (1971) results (shown on th
 of both a Fortran (middle) and a Python (right) implementation of the IMC scheme
 described therein.
 
-<table>
-<tr><td><img src="fig2.png" width="700"></td><td><img src="fortran/calcs/fig2.png"></td><td><img src="python/calcs/fig2.png"></td></tr>
-<tr><td><img src="fig3.png" width="700"></td><td><img src="fortran/calcs/fig3.png"></td><td><img src="python/calcs/fig3.png"></td></tr>
-<tr><td><img src="fig4.png" width="700"></td><td><img src="fortran/calcs/fig4.png"></td><td><img src="python/calcs/fig4.png"></td></tr>
-<tr><td><img src="fig5.png" width="700"></td><td><img src="fortran/calcs/fig5.png"></td><td><img src="python/calcs/fig5.png"></td></tr>
-<tr><td><img src="fig6.png" width="700"></td><td><img src="fortran/calcs/fig6.png"></td><td><img src="python/calcs/fig6.png"></td></tr>
-</table>
 
