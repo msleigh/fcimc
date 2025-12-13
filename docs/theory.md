@@ -1,3 +1,6 @@
+---
+title: Theory
+---
 # Theory
 
 ## Overview
@@ -7,9 +10,9 @@ radiation transport equation, published by
 [Fleck and Cummings in 1971](https://www.sciencedirect.com/science/article/pii/0021999171900155)
 , according to which:
 
-> The method is based upon the concept of effective scattering, wherein a
+> "The method is based upon the concept of effective scattering, wherein a
 > fraction of the radiative energy absorbed is instantaneously and
-> isotropically reradiated in a manner analogous to a scattering process.
+> isotropically reradiated in a manner analogous to a scattering process."
 
 The modelled particles in IMC are not photons, but represent 'packets' of
 photons, whose total energy changes as they interact with the background
@@ -109,16 +112,12 @@ The other time-dependent quantities on  the RHS are:
 
 - \\(\beta\\), which is a metric of the degree of non-linearity of the problem,
   defined as:
-
   $$ \beta = \frac{\partial u_r}{\partial u_m} $$
-
   where \\(u_m\\) is the material energy density;
 - \\(\sigma\\), which is the total interaction cross-section (a property of the
   medium and a function of the local temperature); and
 - \\(\phi\\), which is the scalar intensity of the radiation:
-
   $$ \phi{\left(x,t\right)} = \int_{-1}^1{I{\left(x,t,\mu\right)} d\mu } $$
-
   (We have assumed a 1D system where \\(x\\) is the spatial dimension and
   \\(\mu\\) the direction cosine of the radiation.)
 

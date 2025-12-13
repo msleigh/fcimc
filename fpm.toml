@@ -1,0 +1,30 @@
+[extra.ford]
+project = "fcimc"
+author = "msleigh"
+
+summary = """
+Python and Fortran implementations of Fleck and Cummings's implicit Monte Carlo
+(IMC) scheme, as published in Journal of Computational Physics (JCP) in 1971.
+"""
+
+src_dir = ["./fortran"]
+exclude_dir = ["./fortran/calcs"]
+
+preprocess = false
+search = true
+
+display = ["public", "protected"]
+max_frontpage_items = 4
+extra_filetypes = [
+  { extension = "sh", comment = "#", lexer = "bash" },
+  { extension = "py", comment = "#", lexer = "python" },
+]
+
+license = "mit"
+doc_license = "by"
+project_github = "https://github.com/msleigh/fcimc"
+author_description = "https://msleigh.io/"
+github = "https://github.com/msleigh"
+website = "https://msleigh.io"
+
+page_dir = "./docs"

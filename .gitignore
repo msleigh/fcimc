@@ -9,5 +9,6 @@
 docs/html
 docs/latex
 docs/doxygen.log
+doc/
 .venv
 .aider*

@@ -8,7 +8,6 @@ Python and Fortran implementations of Fleck and Cummings's implicit Monte Carlo
 <img src="https://img.shields.io/github/license/msleigh/fcimc">
 <img src="https://img.shields.io/github/last-commit/msleigh/fcimc">
 <img src="https://img.shields.io/badge/code%20style-black-lightgrey">
-
 ![Build status (`main`)](https://github.com/msleigh/fcimc/actions/workflows/build.yml/badge.svg?branch=main)
 
 For each implementation, the results from the published paper (Fleck and
@@ -21,29 +20,29 @@ repository.
     <th>Fortran implementation</th>
     <th>Python implementation</th>
   <tr>
-    <td><img src="docs/images/figures/reference/fig2.png" width="700"></td>
-    <td><img src="docs/images/figures/fortran/fig2.png"></td>
-    <td><img src="docs/images/figures/python/fig2.png"></td>
+    <td><img src="images/figures/reference/fig2.png" style="width: 100%; max-width: 340px; height: auto;"></td>
+    <td><img src="images/figures/fortran/fig2.png" style="width: 100%; max-width: 220px; height: auto;"></td>
+    <td><img src="images/figures/python/fig2.png" style="width: 100%; max-width: 220px; height: auto;"></td>
   </tr>
   <tr>
-    <td><img src="docs/images/figures/reference/fig3.png" width="700"></td>
-    <td><img src="docs/images/figures/fortran/fig3.png"></td>
-    <td><img src="docs/images/figures/python/fig3.png"></td>
+    <td><img src="images/figures/reference/fig3.png" style="width: 100%; max-width: 340px; height: auto;"></td>
+    <td><img src="images/figures/fortran/fig3.png" style="width: 100%; max-width: 220px; height: auto;"></td>
+    <td><img src="images/figures/python/fig3.png" style="width: 100%; max-width: 220px; height: auto;"></td>
   </tr>
   <tr>
-    <td><img src="docs/images/figures/reference/fig4.png" width="700"></td>
-    <td><img src="docs/images/figures/fortran/fig4.png"></td>
-    <td><img src="docs/images/figures/python/fig4.png"></td>
+    <td><img src="images/figures/reference/fig4.png" style="width: 100%; max-width: 340px; height: auto;"></td>
+    <td><img src="images/figures/fortran/fig4.png" style="width: 100%; max-width: 220px; height: auto;"></td>
+    <td><img src="images/figures/python/fig4.png" style="width: 100%; max-width: 220px; height: auto;"></td>
   </tr>
   <tr>
-    <td><img src="docs/images/figures/reference/fig5.png" width="700"></td>
-    <td><img src="docs/images/figures/fortran/fig5.png"></td>
-    <td><img src="docs/images/figures/python/fig5.png"></td>
+    <td><img src="images/figures/reference/fig5.png" style="width: 100%; max-width: 340px; height: auto;"></td>
+    <td><img src="images/figures/fortran/fig5.png" style="width: 100%; max-width: 220px; height: auto;"></td>
+    <td><img src="images/figures/python/fig5.png" style="width: 100%; max-width: 220px; height: auto;"></td>
   </tr>
   <tr>
-    <td><img src="docs/images/figures/reference/fig6.png" width="700"></td>
-    <td><img src="docs/images/figures/fortran/fig6.png"></td>
-    <td><img src="docs/images/figures/python/fig6.png"></td>
+    <td><img src="images/figures/reference/fig6.png" style="width: 100%; max-width: 340px; height: auto;"></td>
+    <td><img src="images/figures/fortran/fig6.png" style="width: 100%; max-width: 220px; height: auto;"></td>
+    <td><img src="images/figures/python/fig6.png" style="width: 100%; max-width: 220px; height: auto;"></td>
   </tr>
 </table>
 
@@ -64,6 +63,8 @@ repository.
 - Jupyter
 
 ### Documentation
+
+For Doxygen:
 
 - Doxygen
 - Graphviz
@@ -146,6 +147,14 @@ built documentation to a branch called `gh-pages`, and push this to GitHub. If
 the GitHub repository is configured correctly then the `gh-pages` branch will
 be rendered as a static site at `https://<user>.github.io/fcimc`.
 
+### Ford docs
+
+To build the Ford documentation:
+
+    ford ford.md
+
+The configuration is in `fpm.toml`.
+
 ## Verification
 
 Run the Jupyer notebook to plot the results:
@@ -155,5 +164,4 @@ Run the Jupyer notebook to plot the results:
 Verification against the original Fleck and Cummings (1971) results (shown on the left)
 of both a Fortran (middle) and a Python (right) implementation of the IMC scheme
 described therein.
-
 
