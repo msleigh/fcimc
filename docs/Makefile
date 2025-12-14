@@ -1,4 +1,4 @@
-CMP = doxygen
+CMP = ford
 
 .PHONY: html github clean clobber
 
@@ -10,16 +10,13 @@ fortran := $(wildcard ../fortran/*/*.f90)
 # Find README.md
 vpath %.md ..
 
-doxygen.log: Doxyfile README.md $(markdown) $(python) $(fortran)
-	$(CMP) > doxygen.log
+ford.log: README.md $(markdown) $(python) $(fortran)
+	$(CMP) ../ford.md > ford.log 2>&1
 
-html: doxygen.log
-
-github:
-	ghp-import --no-jekyll --no-history --push html
+html: ford.log
 
 clean:
-	rm -f doxygen.log
+	rm -f ford.log
 
 clobber: clean
-	rm -rf html latex
+	rm -rf doc

@@ -6,34 +6,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build docs
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash -l {0}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: conda-incubator/setup-miniconda@v3
-        with:
-          activate-environment: fcimc
-          auto-activate-base: false
-          auto-update-conda: true
-          environment-file: environment.yml
-      - name: Build docs
-        run: |
-          set -e
-          conda run -n fcimc make -C docs html
-      - name: Deploy docs via SSH
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.DOCS_SSH_PRIVATE_KEY }}
-      - name: Disable strict host key checking
-        run: |
-          mkdir -p ~/.ssh
-          echo "StrictHostKeyChecking no" >> ~/.ssh/config
-      #- run: |
-      #    rsync -avz --delete docs/html/ ${{ secrets.DOCS_SSH_USER }}@${{ secrets.DOCS_SSH_HOST }}:${{ secrets.DOCS_SSH_PATH }}
   ford:
     name: Build Ford docs
     runs-on: ubuntu-latest

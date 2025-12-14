@@ -64,26 +64,12 @@ repository.
 
 ### Documentation
 
-For Doxygen:
-
-- Doxygen
-- Graphviz
-- Doxypypy
-- LaTeX
-- ghp-import
-
-The local `py_filter` script must be on the `$PATH`.
-
 ## Installation
 
 To create a Conda env with the necessary dependencies:
 
     conda env create -f environment.yml
     conda activate fcimc
-
-Add `py_filter` to the `$PATH`:
-
-    export PATH=".:${PATH}"
 
 ## Usage
 
@@ -132,20 +118,7 @@ or build/execute, e.g.:
 
 Building the documentation is a special case:
 
-    PATH="$PWD/docs:$PATH" make -C docs html
-
-which makes the `py_filter` command available.
-
-### GitHub Pages
-
-The `html` docs produced by Doxygen can be uploaded to GitHub Pages with:
-
-    make -C docs github
-
-(This step is _not_ run by `runall`.) This uses `ghp-import` to commit the
-built documentation to a branch called `gh-pages`, and push this to GitHub. If
-the GitHub repository is configured correctly then the `gh-pages` branch will
-be rendered as a static site at `https://<user>.github.io/fcimc`.
+    make -C docs html
 
 ### Ford docs
 
