@@ -11,6 +11,8 @@ dependencies:
   - gfortran
   - doxygen
   - graphviz
+  - mkdocs
+  - mkdocs-material
   - ghp-import
   - pip:
       - git+https://github.com/Feneric/doxypypy

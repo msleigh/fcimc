@@ -8,5 +8,6 @@
 .ipynb_checkpoints
 ford.log
 doc/
+site/
 .venv
 .aider*
