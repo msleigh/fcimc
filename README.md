@@ -55,7 +55,7 @@ repository.
 
 ### Fortran implementation
 
-- GFortran
+- GFortran (installed separately; see Installation)
 
 ### Bundled calculations
 
@@ -70,6 +70,20 @@ To create a Conda env with the necessary dependencies:
 
     conda env create -f environment.yml
     conda activate fcimc
+
+To install GFortran:
+
+macOS (Homebrew):
+
+    brew install gcc
+
+Linux (Debian/Ubuntu):
+
+    sudo apt-get install gfortran
+
+Linux (Fedora):
+
+    sudo dnf install gcc-gfortran
 
 ## Usage
 

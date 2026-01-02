@@ -4,7 +4,7 @@
 
 - Python 3 with numpy and matplotlib (see `environment.yml`).
 - Jupyter (for verification plots).
-- Fortran compiler (gfortran).
+- Fortran compiler (gfortran), installed separately.
 - MkDocs and mkdocs-material (for the documentation site).
 - Ford (optional, for the Fortran API reference).
 
@@ -13,6 +13,26 @@
 ```bash
 conda env create -f environment.yml
 conda activate fcimc
+```
+
+## Install gfortran
+
+macOS (Homebrew):
+
+```bash
+brew install gcc
+```
+
+Linux (Debian/Ubuntu):
+
+```bash
+sudo apt-get install gfortran
+```
+
+Linux (Fedora):
+
+```bash
+sudo dnf install gcc-gfortran
 ```
 
 ## Run everything
