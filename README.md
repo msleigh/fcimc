@@ -66,10 +66,11 @@ repository.
 
 ## Installation
 
-To create a Conda env with the necessary dependencies:
+Install Python dependencies with uv (from `pyproject.toml`):
 
-    conda env create -f environment.yml
-    conda activate fcimc
+    uv venv
+    source .venv/bin/activate
+    uv sync
 
 To install GFortran:
 

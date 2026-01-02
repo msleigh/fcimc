@@ -2,7 +2,8 @@
 
 ## Requirements
 
-- Python 3 with numpy and matplotlib (see `environment.yml`).
+- Python 3.
+- uv (for installing Python dependencies from `pyproject.toml`).
 - Jupyter (for verification plots).
 - Fortran compiler (gfortran), installed separately.
 - MkDocs and mkdocs-material (for the documentation site).
@@ -11,8 +12,9 @@
 ## Environment setup
 
 ```bash
-conda env create -f environment.yml
-conda activate fcimc
+uv venv
+source .venv/bin/activate
+uv sync
 ```
 
 ## Install gfortran
@@ -89,11 +91,5 @@ Example inputs live under `python/calcs` and `fortran/calcs`. The default
 Preview the docs locally:
 
 ```bash
-mkdocs serve
-```
-
-If you are using `uvx`, include the Material theme:
-
-```bash
-uvx --with mkdocs-material mkdocs serve
+uv run mkdocs serve
 ```
