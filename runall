@@ -19,7 +19,7 @@ fi
 make -C python/calcs  -j 4 all &
 make -C fortran/src   -j 1 imc.exe
 make -C fortran/calcs -j 4 all &
-PATH="${PWD}/docs:${PATH}" make -C docs -j 4 html &
+make -C docs          -j 4 html &
 wait
 
 for FILE in ./*/calcs/calc*_output.dat ; do
