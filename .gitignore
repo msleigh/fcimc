@@ -9,5 +9,6 @@
 ford.log
 doc/
 site/
+mkdocs/doc/
 .venv
 .aider*
