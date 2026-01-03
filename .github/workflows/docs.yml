@@ -6,20 +6,27 @@ on:
   workflow_dispatch:
 
 jobs:
-  ford:
-    name: Build Ford docs
+  docs:
+    name: Build docs
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash -l {0}
     steps:
       - uses: actions/checkout@v5
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: ".python-version"
       - name: Install uv
         uses: astral-sh/setup-uv@v7
 
+      - name: Install dependencies
+        run: |
+          uv sync
       - name: Build docs
         run: |
-          uv tool run ford ford.md
+          uv run make -C docs html
       - name: Deploy docs via SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -29,4 +36,4 @@ jobs:
           mkdir -p ~/.ssh
           echo "StrictHostKeyChecking no" >> ~/.ssh/config
       - run: |
-          rsync -avz --delete doc/ ${{ secrets.DOCS_SSH_USER }}@${{ secrets.DOCS_SSH_HOST }}:${{ secrets.DOCS_SSH_PATH }}
+          rsync -avz --delete site/ ${{ secrets.DOCS_SSH_USER }}@${{ secrets.DOCS_SSH_HOST }}:${{ secrets.DOCS_SSH_PATH }}
