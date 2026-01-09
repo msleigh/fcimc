@@ -2,10 +2,12 @@ FORD = ford
 MKDOCS = mkdocs
 MKDOCS_CFG = ../mkdocs.yml
 MKDOCS_DOC_DIR = ../mkdocs/doc
+MKDOCS_IMG_DIR = ../mkdocs/images/figures
 SITE_DIR = ../site
 FORD_DIR = ../doc
+IMAGES_DIR = ../images/figures
 
-.PHONY: html mkdocs sync-ford github clean clobber
+.PHONY: html mkdocs sync-ford sync-images github clean clobber
 
 # Needs to be consistent with input to Doxygen in Doxyfile
 markdown := $(wildcard *.md)
@@ -23,7 +25,12 @@ sync-ford: ford.log
 	mkdir -p $(MKDOCS_DOC_DIR)
 	cp -R $(FORD_DIR)/* $(MKDOCS_DOC_DIR)/
 
-mkdocs: sync-ford
+sync-images:
+	rm -rf $(MKDOCS_IMG_DIR)
+	mkdir -p $(MKDOCS_IMG_DIR)
+	cp -R $(IMAGES_DIR)/* $(MKDOCS_IMG_DIR)/
+
+mkdocs: sync-ford sync-images
 	$(MKDOCS) build -f $(MKDOCS_CFG)
 
 html: ford.log mkdocs
@@ -34,3 +41,4 @@ clean:
 clobber: clean
 	rm -rf doc
 	rm -rf $(MKDOCS_DOC_DIR)
+	rm -rf $(MKDOCS_IMG_DIR)

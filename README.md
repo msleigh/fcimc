@@ -135,7 +135,8 @@ Building the documentation is a special case:
 
     make -C docs html
 
-### Ford docs
+This builds the MkDocs site into `site/` and embeds the Ford API reference at
+`site/doc/`.
 
 To build the Ford documentation:
 

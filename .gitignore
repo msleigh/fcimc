@@ -10,5 +10,6 @@ ford.log
 doc/
 site/
 mkdocs/doc/
+mkdocs/images/figures/
 .venv
 .aider*
