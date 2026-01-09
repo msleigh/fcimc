@@ -28,8 +28,13 @@ plugins:
 markdown_extensions:
   - admonition
   - fenced_code
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __line
+      pygments_lang_class: true
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.superfences
   - tables
   - toc:
       permalink: true
