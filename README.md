@@ -138,11 +138,9 @@ Building the documentation is a special case:
 This builds the MkDocs site into `site/` and embeds the Ford API reference at
 `site/doc/`.
 
-To build the Ford documentation:
+To preview the documentation locally:
 
-    ford ford.md
-
-The configuration is in `fpm.toml`.
+    uv run mkdocs serve
 
 ## Verification
 
