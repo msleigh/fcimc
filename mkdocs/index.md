@@ -54,6 +54,7 @@ repository.
 - [Python implementation](python.md)
 - [Fortran implementation](fortran.md)
 - [Verification workflow](verification.md)
+- [Theory](theory.md)
 
 ## Fortran API reference
 

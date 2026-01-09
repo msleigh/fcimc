@@ -2,12 +2,12 @@
 
 ## Requirements
 
-- Python 3.
-- uv (for installing Python dependencies from `pyproject.toml`).
-- Jupyter (for verification plots).
-- Fortran compiler (gfortran), installed separately.
-- MkDocs and mkdocs-material (for the documentation site).
-- Ford (optional, for the Fortran API reference).
+- [Python 3](https://www.python.org/).
+- [uv](https://docs.astral.sh/uv/) (for installing Python dependencies from `pyproject.toml`).
+- [Jupyter](https://jupyter.org/) (for verification plots).
+- Fortran compiler ([gfortran](https://gcc.gnu.org/fortran/)), installed separately.
+- [MkDocs](https://www.mkdocs.org/) and [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) (for the documentation site).
+- [Ford](https://forddocs.readthedocs.io/en/stable/) (optional, for the Fortran API reference).
 
 ## Environment setup
 
