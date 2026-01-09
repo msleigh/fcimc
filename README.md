@@ -101,7 +101,7 @@ To see the aggregated output:
 
 To open the documentation:
 
-    open docs/html/index.html
+    open site/index.html
 
 ### Cleaning
 
