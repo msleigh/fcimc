@@ -44,10 +44,10 @@ test: $(NAME).exe
 $(NAME).exe: $(MODULES) $(OBJECTS)
 	$(CMP) $(FFLAGS) $(LFLAGS) $(OBJECTS) -o $(NAME).exe
 
-%.o :  %.f90
+%.o :  %.f90 Makefile
 	$(CMP) $(FFLAGS) -c $<
 
-%.mod: %.f90
+%.mod: %.f90 Makefile
 	$(CMP) $(FFLAGS) -c $<
 
 clean:
