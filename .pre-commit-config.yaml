@@ -1,0 +1,19 @@
+repos:
+- repo: local
+  hooks:
+  - id: strip-notebook-output
+    name: Strip Jupyter Notebook Output
+    language: system
+    entry: uv run jupyter nbconvert --clear-output --inplace
+    files: \.ipynb$
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v6.0.0
+  hooks:
+  - id: check-added-large-files
+  - id: check-yaml
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
+- repo: https://github.com/shellcheck-py/shellcheck-py
+  rev: v0.11.0.1
+  hooks:
+  - id: shellcheck
