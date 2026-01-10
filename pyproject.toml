@@ -1,8 +1,9 @@
 [project]
 name = "fcimc"
 version = "0.1.0"
-description = "Add your description here"
+description = "Python and Fortran implementations of the Fleck and Cummings implicit Monte Carlo scheme."
 readme = "README.md"
+license = { file = "LICENSE.txt" }
 requires-python = ">=3.13"
 dependencies = [
   "ford",
