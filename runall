@@ -79,10 +79,77 @@ with open(kgo_path, "r", encoding="utf-8") as kgo, open(out_path, "r", encoding=
 PY
 }
 
+diff_python_pickle() {
+    local kgo_file="$1"
+    local out_file="$2"
+    python3 - "$kgo_file" "$out_file" "$ABS_TOL" "$REL_TOL" <<'PY'
+import pickle
+import sys
+
+import numpy as np
+
+kgo_path = sys.argv[1]
+out_path = sys.argv[2]
+abs_tol = float(sys.argv[3])
+rel_tol = float(sys.argv[4])
+
+
+def read_entries(path):
+    entries = []
+    with open(path, "rb") as handle:
+        while True:
+            line = handle.readline()
+            if not line:
+                break
+            if not line.startswith(b"Time ="):
+                raise ValueError(f"{path}: unexpected line: {line[:40]!r}")
+            _, value = line.split(b"=", 1)
+            time_val = float(value.strip())
+            cellpos = pickle.load(handle)
+            temp = pickle.load(handle)
+            entries.append((time_val, np.asarray(cellpos), np.asarray(temp)))
+    return entries
+
+
+def close_enough(a, b):
+    diff = abs(a - b)
+    tol = max(abs_tol, rel_tol * max(abs(a), abs(b)))
+    return diff <= tol, diff, tol
+
+
+kgo_entries = read_entries(kgo_path)
+out_entries = read_entries(out_path)
+
+if len(kgo_entries) != len(out_entries):
+    sys.stderr.write(
+        f"{out_path}: entry count differs ({len(kgo_entries)} != {len(out_entries)})\n"
+    )
+    sys.exit(1)
+
+for idx, ((t1, x1, y1), (t2, x2, y2)) in enumerate(
+    zip(kgo_entries, out_entries), 1
+):
+    ok, diff, tol = close_enough(t1, t2)
+    if not ok:
+        sys.stderr.write(
+            f"{out_path}: time[{idx}] {t1} != {t2} (diff {diff}, tol {tol})\n"
+        )
+        sys.exit(1)
+    if not np.allclose(x1, x2, rtol=rel_tol, atol=abs_tol):
+        sys.stderr.write(f"{out_path}: cellpos[{idx}] differs\n")
+        sys.exit(1)
+    if not np.allclose(y1, y2, rtol=rel_tol, atol=abs_tol):
+        sys.stderr.write(f"{out_path}: temp[{idx}] differs\n")
+        sys.exit(1)
+PY
+}
+
 for FILE in ./*/calcs/calc*_output.dat ; do
     echo "${FILE}"
     if [[ "${FILE}" == ./fortran/calcs/* ]] ; then
         diff_fortran_tolerant "${FILE}.kgo" "${FILE}"
+    elif [[ "${FILE}" == ./python/calcs/* ]] ; then
+        diff_python_pickle "${FILE}.kgo" "${FILE}"
     else
         diff "${FILE}" "${FILE}.kgo"
     fi
