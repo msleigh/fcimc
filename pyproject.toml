@@ -13,3 +13,6 @@ dependencies = [
   "mkdocs-material",
   "numpy",
 ]
+
+[project.optional-dependencies]
+dev = ["pre-commit"]
