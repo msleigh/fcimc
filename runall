@@ -3,6 +3,18 @@
 set -eu
 set -o pipefail
 
+update_kgo=0
+while getopts ":u" opt; do
+    case "${opt}" in
+        u) update_kgo=1 ;;
+        *)
+            echo "Usage: $0 [-u] [clean|clobber]" >&2
+            exit 2
+            ;;
+    esac
+done
+shift $((OPTIND - 1))
+
 if [[ "${1:-""}" == "clean" || "${1:-""}" == "clobber" ]] ; then
     make -C python/calcs  "$1"
     make -C fortran/src   "$1"
@@ -11,16 +23,17 @@ if [[ "${1:-""}" == "clean" || "${1:-""}" == "clobber" ]] ; then
     exit 0
 fi
 
-# Uncomment to update known good output files
-#for FILE in ./*/calcs/calc*_output.dat ; do
-#    cp "${FILE}" "${FILE}.kgo"
-#done
-
 make -C python/calcs  -j 4 all &
 make -C fortran/src   -j 1 imc.exe
 make -C fortran/calcs -j 4 all &
 make -C docs          -j 4 html &
 wait
+
+if [[ "${update_kgo}" == "1" ]] ; then
+    for FILE in ./*/calcs/calc*_output.dat ; do
+        cp "${FILE}" "${FILE}.kgo"
+    done
+fi
 
 for FILE in ./*/calcs/calc*_output.dat ; do
     echo "${FILE}"
