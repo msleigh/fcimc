@@ -3,8 +3,8 @@ site_description: Python and Fortran implementations of the Fleck and Cummings (
 repo_url: https://github.com/msleigh/fcimc
 repo_name: msleigh/fcimc
 
-docs_dir: mkdocs
-site_dir: site
+docs_dir: .
+site_dir: ../site
 
 theme:
   name: material

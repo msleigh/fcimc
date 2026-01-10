@@ -91,5 +91,5 @@ Example inputs live under `python/calcs` and `fortran/calcs`. The default
 Preview the docs locally:
 
 ```bash
-uv run mkdocs serve
+uv run mkdocs serve -f mkdocs/mkdocs.yml
 ```

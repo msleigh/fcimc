@@ -140,7 +140,7 @@ This builds the MkDocs site into `site/` and embeds the Ford API reference at
 
 To preview the documentation locally:
 
-    uv run mkdocs serve
+    uv run mkdocs serve -f mkdocs/mkdocs.yml
 
 ## Verification
 

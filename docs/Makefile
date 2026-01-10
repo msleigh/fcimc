@@ -1,6 +1,6 @@
 FORD = ford
 MKDOCS = mkdocs
-MKDOCS_CFG = ../mkdocs.yml
+MKDOCS_CFG = ../mkdocs/mkdocs.yml
 MKDOCS_DOC_DIR = ../mkdocs/doc
 MKDOCS_IMG_DIR = ../mkdocs/images/figures
 SITE_DIR = ../site
