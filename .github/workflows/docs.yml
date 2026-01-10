@@ -9,6 +9,11 @@ jobs:
   docs:
     name: Build docs
     runs-on: ubuntu-latest
+    env:
+      DOCS_SSH_PRIVATE_KEY: ${{ secrets.DOCS_SSH_PRIVATE_KEY }}
+      DOCS_SSH_USER: ${{ secrets.DOCS_SSH_USER }}
+      DOCS_SSH_HOST: ${{ secrets.DOCS_SSH_HOST }}
+      DOCS_SSH_PATH: ${{ secrets.DOCS_SSH_PATH }}
     defaults:
       run:
         shell: bash -l {0}
@@ -28,12 +33,33 @@ jobs:
         run: |
           uv run make -C docs html
       - name: Deploy docs via SSH
+        if: >-
+          github.event_name == 'push' &&
+          github.ref == 'refs/heads/main' &&
+          env.DOCS_SSH_PRIVATE_KEY != '' &&
+          env.DOCS_SSH_USER != '' &&
+          env.DOCS_SSH_HOST != '' &&
+          env.DOCS_SSH_PATH != ''
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.DOCS_SSH_PRIVATE_KEY }}
       - name: Disable strict host key checking
+        if: >-
+          github.event_name == 'push' &&
+          github.ref == 'refs/heads/main' &&
+          env.DOCS_SSH_PRIVATE_KEY != '' &&
+          env.DOCS_SSH_USER != '' &&
+          env.DOCS_SSH_HOST != '' &&
+          env.DOCS_SSH_PATH != ''
         run: |
           mkdir -p ~/.ssh
           echo "StrictHostKeyChecking no" >> ~/.ssh/config
-      - run: |
+      - if: >-
+          github.event_name == 'push' &&
+          github.ref == 'refs/heads/main' &&
+          env.DOCS_SSH_PRIVATE_KEY != '' &&
+          env.DOCS_SSH_USER != '' &&
+          env.DOCS_SSH_HOST != '' &&
+          env.DOCS_SSH_PATH != ''
+        run: |
           rsync -avz --delete site/ ${{ secrets.DOCS_SSH_USER }}@${{ secrets.DOCS_SSH_HOST }}:${{ secrets.DOCS_SSH_PATH }}

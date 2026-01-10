@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -14,29 +15,15 @@ jobs:
       run:
         shell: bash -l {0}
     steps:
-      - uses: actions/checkout@v2
-      - uses: conda-incubator/setup-miniconda@v2
+      - uses: actions/checkout@v5
+      - name: Set up Python
+        uses: actions/setup-python@v6
         with:
-          activate-environment: fcimc
-          auto-activate-base: false
-          auto-update-conda: true
-          environment-file: environment.yml
-          python-version: 3.7
+          python-version-file: ".python-version"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+      - name: Install dependencies
+        run: |
+          uv sync
       - run: |
-          conda info
-          conda list
-          pwd
-          ls -la
-          git status
-          git remote -vv show
-          ./runall || true # TEMPORARY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      - name: Update
-        env:
-          FCIMC_TOKEN: ${{ secrets.FCIMC_TOKEN }}
-        run: |-
-          git diff
-          git config --global user.email "actions@users.noreply.github.com"
-          git config --global user.name "Build Bot"
-          git add fortran/calcs/*.png python/calcs/*.png
-          git commit -m "Updated graphs automatically via GitHub Action" || true
-          git push || true
+          uv run ./runall
