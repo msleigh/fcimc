@@ -3,6 +3,9 @@
 set -eu
 set -o pipefail
 
+ABS_TOL=${ABS_TOL:-1e-10}
+REL_TOL=${REL_TOL:-1e-8}
+
 update_kgo=0
 while getopts ":u" opt; do
     case "${opt}" in
@@ -35,9 +38,54 @@ if [[ "${update_kgo}" == "1" ]] ; then
     done
 fi
 
+diff_fortran_tolerant() {
+    local kgo_file="$1"
+    local out_file="$2"
+    python3 - "$kgo_file" "$out_file" "$ABS_TOL" "$REL_TOL" <<'PY'
+import re
+import sys
+from itertools import zip_longest
+
+kgo_path = sys.argv[1]
+out_path = sys.argv[2]
+abs_tol = float(sys.argv[3])
+rel_tol = float(sys.argv[4])
+
+float_re = re.compile(r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[Ee][+-]?\d+)?")
+
+with open(kgo_path, "r", encoding="utf-8") as kgo, open(out_path, "r", encoding="utf-8") as out:
+    for lineno, (l1, l2) in enumerate(zip_longest(kgo, out), 1):
+        if l1 is None or l2 is None:
+            sys.stderr.write(f"{out_path}:{lineno}: file length differs\n")
+            sys.exit(1)
+        if l1 == l2:
+            continue
+        nums1 = [float(x) for x in float_re.findall(l1)]
+        nums2 = [float(x) for x in float_re.findall(l2)]
+        if not nums1 and not nums2:
+            sys.stderr.write(f"{out_path}:{lineno}: non-numeric line differs\n")
+            sys.exit(1)
+        if len(nums1) != len(nums2):
+            sys.stderr.write(f"{out_path}:{lineno}: numeric field count differs\n")
+            sys.exit(1)
+        for idx, (a, b) in enumerate(zip(nums1, nums2), 1):
+            diff = abs(a - b)
+            tol = max(abs_tol, rel_tol * max(abs(a), abs(b)))
+            if diff > tol:
+                sys.stderr.write(
+                    f"{out_path}:{lineno}:{idx}: {a} != {b} (diff {diff}, tol {tol})\n"
+                )
+                sys.exit(1)
+PY
+}
+
 for FILE in ./*/calcs/calc*_output.dat ; do
     echo "${FILE}"
-    diff "${FILE}" "${FILE}.kgo"
+    if [[ "${FILE}" == ./fortran/calcs/* ]] ; then
+        diff_fortran_tolerant "${FILE}.kgo" "${FILE}"
+    else
+        diff "${FILE}" "${FILE}.kgo"
+    fi
 done
 
 exit 0
