@@ -3,7 +3,7 @@ NAME = imc
 CMP = gfortran
 
 #FFLAGS = -fbounds-check -g -pedantic -Wall -O #-pg
-FFLAGS = -Ofast
+FFLAGS = -O2
 #FFLAGS = -fopenmp
 #LFLAGS =
 
