@@ -5,6 +5,8 @@ MKDOCS_DOC_DIR = ../mkdocs/doc
 MKDOCS_IMG_DIR = ../mkdocs/images/figures
 SITE_DIR = ../site
 FORD_DIR = ../doc
+FORD_OUT_DIR = doc
+FORD_OUT = $(FORD_DIR)/index.html
 IMAGES_DIR = ../images/figures
 
 .PHONY: html mkdocs sync-ford sync-images github clean clobber
@@ -17,10 +19,10 @@ fortran := $(wildcard ../fortran/*/*.f90)
 # Find README.md
 vpath %.md ..
 
-ford.log: README.md $(markdown) $(python) $(fortran)
-	$(FORD) ../ford.md > ford.log 2>&1
+$(FORD_OUT): README.md $(markdown) $(python) $(fortran)
+	$(FORD) -o $(FORD_OUT_DIR) ../ford.md > ford.log 2>&1
 
-sync-ford: ford.log
+sync-ford: $(FORD_OUT)
 	rm -rf $(MKDOCS_DOC_DIR)
 	mkdir -p $(MKDOCS_DOC_DIR)
 	cp -R $(FORD_DIR)/* $(MKDOCS_DOC_DIR)/
@@ -33,12 +35,12 @@ sync-images:
 mkdocs: sync-ford sync-images
 	$(MKDOCS) build -f $(MKDOCS_CFG)
 
-html: ford.log mkdocs
+html: mkdocs
 
 clean:
 	rm -f ford.log
 
 clobber: clean
-	rm -rf doc
+	rm -rf $(FORD_DIR)
 	rm -rf $(MKDOCS_DOC_DIR)
 	rm -rf $(MKDOCS_IMG_DIR)
