@@ -1,9 +1,13 @@
 # fcimc
 
+## Introduction
+
 fcimc provides Python and Fortran implementations of the Fleck and Cummings
 (1971) implicit Monte Carlo (IMC) method for 1D slab radiation transport.
 This site is the entry point for the repository and covers build, usage, and
 implementation notes for both versions.
+
+## Verification
 
 For each implementation, the results from the published paper (Fleck and
 Cummings 1971) are reproduced via a set of predefined runs included in the
@@ -47,14 +51,6 @@ repository.
 - `fortran/src` - Fortran implementation.
 - `python/calcs` and `fortran/calcs` - reproduction runs and figure scripts.
 - `ford.md` and `docs/` - Ford configuration and pages for the Fortran API docs.
-
-## Where to start
-
-- [Getting started](getting-started.md)
-- [Python implementation](python.md)
-- [Fortran implementation](fortran.md)
-- [Verification workflow](verification.md)
-- [Theory](theory.md)
 
 ## Fortran API reference
 
