@@ -12,6 +12,7 @@ exclude_dir = ["./fortran/calcs"]
 
 preprocess = false
 search = true
+print_creation_date = true
 
 display = ["public", "protected"]
 max_frontpage_items = 4
