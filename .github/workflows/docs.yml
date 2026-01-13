@@ -25,12 +25,12 @@ jobs:
           python-version-file: ".python-version"
       - name: Install uv
         uses: astral-sh/setup-uv@v7
+        with:
+            version: "0.9.24"
 
-      - name: Install dependencies
-        run: |
-          uv sync
       - name: Build docs
         run: |
+          set -e
           uv run make -C docs html
       - name: Deploy docs via SSH
         if: >-
@@ -42,7 +42,7 @@ jobs:
           env.DOCS_SSH_PATH != ''
         uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: ${{ secrets.DOCS_SSH_PRIVATE_KEY }}
+          ssh-private-key: ${{ env.DOCS_SSH_PRIVATE_KEY }}
       - name: Disable strict host key checking
         if: >-
           github.event_name == 'push' &&
@@ -62,4 +62,4 @@ jobs:
           env.DOCS_SSH_HOST != '' &&
           env.DOCS_SSH_PATH != ''
         run: |
-          rsync -avz --delete site/ ${{ secrets.DOCS_SSH_USER }}@${{ secrets.DOCS_SSH_HOST }}:${{ secrets.DOCS_SSH_PATH }}
+          rsync -avz --delete site/ ${{ env.DOCS_SSH_USER }}@${{ env.DOCS_SSH_HOST }}:${{ env.DOCS_SSH_PATH }}
