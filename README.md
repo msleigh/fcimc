@@ -144,7 +144,7 @@ To preview the documentation locally:
 
 ## Verification
 
-Run the Jupyer notebook to plot the results:
+Run the Jupyter notebook to plot the results:
 
     jupyter notebook verification.ipynb
 
