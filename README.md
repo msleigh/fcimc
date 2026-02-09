@@ -7,6 +7,7 @@ Python and Fortran implementations of Fleck and Cummings's implicit Monte Carlo
 ![Release](https://img.shields.io/github/v/release/msleigh/fcimc?include_prereleases)
 ![License](https://img.shields.io/github/license/msleigh/fcimc)
 ![Last commit](https://img.shields.io/github/last-commit/msleigh/fcimc)
+![Repo size](https://img.shields.io/github/repo-size/msleigh/fcimc)
 ![Code style: black](https://img.shields.io/badge/code%20style-black-lightgrey)
 ![Build status (`main`)](https://github.com/msleigh/fcimc/actions/workflows/build.yml/badge.svg?branch=main)
 
