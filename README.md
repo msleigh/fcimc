@@ -139,6 +139,13 @@ Building the documentation is a special case:
 This builds the MkDocs site into `site/` and embeds the Ford API reference at
 `site/doc/`.
 
+An experimental Zensical build can be run against the same MkDocs config:
+
+    make -C docs zensical
+
+This writes to `mkdocs/site/` so the primary Material for MkDocs output in
+`site/` remains unchanged.
+
 To preview the documentation locally:
 
     uv run mkdocs serve -f mkdocs/mkdocs.yml

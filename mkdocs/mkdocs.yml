@@ -4,7 +4,7 @@ repo_url: https://github.com/msleigh/fcimc
 repo_name: msleigh/fcimc
 
 docs_dir: .
-site_dir: ../site
+site_dir: !ENV [FCIMC_SITE_DIR, ../site]
 
 theme:
   name: material

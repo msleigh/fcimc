@@ -1,12 +1,13 @@
-.PHONY: ford html mkdocs sync-ford sync-images clean clobber
+.PHONY: ford html mkdocs zensical sync-ford sync-images clean clobber
 
 # Needs to be consistent with input to Ford
 markdown := $(wildcard *.md)
 python := $(wildcard ../python/*/*.py)
 fortran := $(wildcard ../fortran/*/*.f90)
 
-FORD := ford
-MKDOCS := mkdocs
+FORD := uv run --no-default-groups --group ford ford
+MKDOCS := uv run mkdocs
+ZENSICAL := uv run --no-default-groups --group zensical zensical
 
 MKDOCS_DIR := ../mkdocs
 MKDOCS_CFG := $(MKDOCS_DIR)/mkdocs.yml
@@ -14,6 +15,7 @@ MKDOCS_CFG := $(MKDOCS_DIR)/mkdocs.yml
 MKDOCS_DOC_DIR := $(MKDOCS_DIR)/doc
 MKDOCS_IMG_DIR := $(MKDOCS_DIR)/images/figures
 MKDOCS_SITE_DIR := ../site
+ZENSICAL_SITE_DIR := $(MKDOCS_DIR)/site
 FORD_DIR := ../doc
 FORD_OUT_DIR := doc
 FORD_OUT := $(FORD_DIR)/index.html
@@ -26,6 +28,9 @@ html: mkdocs
 
 mkdocs: sync-ford sync-images
 	$(MKDOCS) build -f $(MKDOCS_CFG)
+
+zensical: sync-ford sync-images
+	FCIMC_SITE_DIR=site $(ZENSICAL) build -f $(MKDOCS_CFG)
 
 sync-ford: $(FORD_OUT)
 	rm -rf $(MKDOCS_DOC_DIR)
@@ -50,3 +55,4 @@ clean:
 clobber: clean
 	rm -rf $(FORD_DIR)
 	rm -rf $(MKDOCS_SITE_DIR)
+	rm -rf $(ZENSICAL_SITE_DIR)

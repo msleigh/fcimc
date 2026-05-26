@@ -6,7 +6,6 @@ readme = "README.md"
 license = { file = "LICENSE.txt" }
 requires-python = ">=3.13"
 dependencies = [
-  "ford",
   "jupyter",
   "matplotlib",
   "mkdocs",
@@ -14,5 +13,18 @@ dependencies = [
   "numpy",
 ]
 
+[dependency-groups]
+ford = ["ford"]
+zensical = ["zensical>=0.0.40"]
+
 [project.optional-dependencies]
 dev = ["pre-commit"]
+
+[tool.uv]
+default-groups = ["ford"]
+conflicts = [
+  [
+    { group = "ford" },
+    { group = "zensical" },
+  ],
+]

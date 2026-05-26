@@ -93,3 +93,9 @@ Preview the docs locally:
 ```bash
 uv run mkdocs serve -f mkdocs/mkdocs.yml
 ```
+
+Build the experimental Zensical version:
+
+```bash
+make -C docs zensical
+```
