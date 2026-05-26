@@ -83,10 +83,10 @@ end-of-time-step values (time level \\(n+1\\)), the explicit scheme using the
 values from time level \\(n\\). A scheme can also be constructed that mixes the
 two:
 
-$$ u^{n+1} \approx u^n + \Delta t \left[
+$$ u^{n+1} \approx u^n + \Delta t \left\lbrack
     \alpha            \:    f{\left(u^{n+1}\right)} +
     \left(1 - \alpha\right) f{\left(u^n\right)}
-\right] $$
+\right\rbrack $$
 
 (with which \\(\alpha = 1/2\\) yields the well-known Crank-Nicholson scheme).
 Similarly, in IMC, the radiation energy density equation:
@@ -96,8 +96,8 @@ $$ \frac{\partial u_r}{\partial t} = \beta \sigma \left( \phi - cu_r \right) $$
 is discretised as:
 
 $$ u_r^{n+1} \approx u_r^n + \Delta t
-    \hat\beta \hat\sigma \left( \phi^\lambda - c\left[ \alpha u_r^{n+1} + \left(1-\alpha\right)u_r^n
- \right] \right)
+    \hat\beta \hat\sigma \left( \phi^\lambda - c\left\lbrack \alpha u_r^{n+1} + \left(1-\alpha\right)u_r^n
+ \right\rbrack \right)
 $$
 
 The value of \\(u_r\\), the radiation energy density, on the right-hand side
@@ -137,15 +137,15 @@ possible to write an equation for \\(\alpha u^{n+1}_r + \left(1-\alpha\right)u^n
 which can be substituted into the transport equation. That is:
 
 $$ u_r^{n+1} \approx u_r^n + \Delta t
-    \hat\beta \hat\sigma \left( \phi^\lambda - c\left[ \alpha u_r^{n+1} + \left(1-\alpha\right)u_r^n
- \right] \right)
+    \hat\beta \hat\sigma \left( \phi^\lambda - c\left\lbrack \alpha u_r^{n+1} + \left(1-\alpha\right)u_r^n
+ \right\rbrack \right)
 $$
 
 is rearranged to give:
 
 $$ u_r^{n+1} \approx
-\left[ \frac{1-\left(1-\alpha\right)\hat\beta c\Delta t\hat\sigma}{1+\alpha\hat\beta c\Delta t\hat\sigma} \right] u^n_r +
-\left[ \frac{\hat\beta\hat\sigma\Delta t}{1+\alpha\hat\beta c\Delta t\hat\sigma} \right] \phi^\lambda
+\left\lbrack \frac{1-\left(1-\alpha\right)\hat\beta c\Delta t\hat\sigma}{1+\alpha\hat\beta c\Delta t\hat\sigma} \right\rbrack u^n_r +
+\left\lbrack \frac{\hat\beta\hat\sigma\Delta t}{1+\alpha\hat\beta c\Delta t\hat\sigma} \right\rbrack \phi^\lambda
 $$
 
 which allows us to write:
@@ -159,8 +159,8 @@ Substituting this into the transport equation gives:
 
 $$ \frac{1}{c} \frac{\partial I}{\partial t} + \mu \frac{\partial I}{\partial x} + \sigma I
 = \frac{1}{2}\sigma
-    \left[ \frac{\alpha\hat\beta c\hat\sigma\Delta t}{1 + \alpha\hat\beta c\Delta t\hat\sigma} \phi^\lambda +
-\frac{c}{1 + \alpha\hat\beta c\Delta t\hat\sigma} u^n_r\right]
+    \left\lbrack \frac{\alpha\hat\beta c\hat\sigma\Delta t}{1 + \alpha\hat\beta c\Delta t\hat\sigma} \phi^\lambda +
+\frac{c}{1 + \alpha\hat\beta c\Delta t\hat\sigma} u^n_r\right\rbrack
 $$
 
 which we can re-write as:
