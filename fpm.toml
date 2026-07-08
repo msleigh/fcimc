@@ -27,5 +27,3 @@ project_github = "https://github.com/msleigh/fcimc"
 author_description = "https://msleigh.io/"
 github = "https://github.com/msleigh"
 website = "https://msleigh.io"
-
-page_dir = "./docs"
