@@ -7,7 +7,7 @@
 *.out
 .ipynb_checkpoints
 site/
-mkdocs/doc/
+mkdocs/docs/doc/
 mkdocs/images/figures/
 .venv
 .aider*
