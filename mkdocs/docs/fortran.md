@@ -27,10 +27,10 @@ make -C docs html
 ford ford.md
 ```
 
-The output is written to `doc/index.html` by default. When you build the
+The output is written to `ford/index.html` by default. When you build the
 documentation via `make -C docs html`, it is copied into the MkDocs site so the
 link below works from the rendered pages:
 
-[Fortran API reference](doc/index.html)
+[Fortran API reference](ford/index.html)
 
 If you are using `mkdocs serve`, open `doc/index.html` from disk instead.

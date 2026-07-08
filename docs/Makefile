@@ -12,7 +12,7 @@ ZENSICAL := uv run --no-default-groups --group zensical zensical
 MKDOCS_DIR := ../mkdocs
 MKDOCS_CFG := $(MKDOCS_DIR)/mkdocs.yml
 
-MKDOCS_DOC_DIR := $(MKDOCS_DIR)/docs/doc
+MKDOCS_DOC_DIR := $(MKDOCS_DIR)/docs/ford
 MKDOCS_IMG_DIR := $(MKDOCS_DIR)/images/figures
 MKDOCS_SITE_DIR := ../site
 ZENSICAL_SITE_DIR := $(MKDOCS_DIR)/site
