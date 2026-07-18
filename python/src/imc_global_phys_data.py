@@ -9,7 +9,8 @@ c = 3.0e10  # cm.s^-1
 # Planck constant
 h = 4.1356675e-18  # KeV.s
 
-pi = 3.14159265359
+import math
+pi = math.pi
 
 # Derived constants
 # -----------------
