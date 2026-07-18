@@ -55,6 +55,6 @@ def echo():
     @return  None
     """
     print("Mesh:")
-    print(mesh.ncells, mesh.xsize, dx)
+    print(mesh.ncells, mesh.xsize, mesh.dx)
     print(mesh.cellpos)
     print(mesh.nodepos)
