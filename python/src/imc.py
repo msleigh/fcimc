@@ -1,7 +1,6 @@
 """Top-level main program for fcimc."""
 
 import argparse
-import logging
 import random
 import time as pytime
 
@@ -12,16 +11,6 @@ import imc_opcon
 import imc_user_input
 
 
-def setup_logger():
-    """Set up logging."""
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging.DEBUG)
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.DEBUG)
-    formatter = logging.Formatter("%(asctime)s %(name)24s %(levelname)8s: %(message)s")
-    console_handler.setFormatter(formatter)
-    logger.addHandler(console_handler)
-    return logger
 
 
 def parse_args():
@@ -34,7 +23,7 @@ def parse_args():
     parser.add_argument(
         "-o", "--output", default="fcimc.out", help="Name of output file"
     )
-    parser.add_argument("-d", "--debug", default=False, help="Debug mode")
+    parser.add_argument("-d", "--debug", action="store_true", help="Debug mode")
 
     return parser.parse_args()
 
